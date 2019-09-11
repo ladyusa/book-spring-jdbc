@@ -6,6 +6,6 @@ public interface BookDao {
     void insert(Book book);
     void update(int id, Book book);
     void delete(int id);
-    Book getOne(int id);
-    List<Book> getAll();
+    Book findById(int id);
+    List<Book> findAll();
 }
