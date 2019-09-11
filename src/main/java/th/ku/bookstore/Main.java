@@ -11,9 +11,9 @@ public class Main {
         ApplicationContext context = new ClassPathXmlApplicationContext("config.xml");
         BookDao bookDao = context.getBean("bookDaoImp", BookDao.class);
 
-        // ---- insert book ----
+        // ---- save book ----
         Book newBook = new Book(4, "Basic of Spring Framework", 556);
-        bookDao.insert(newBook);
+        bookDao.save(newBook);
 
         // ---- select book ----
         Book spring = bookDao.findById(4);
@@ -31,8 +31,8 @@ public class Main {
         spring = bookDao.findById(4);
         System.out.println("---findById: " + spring);
 
-        // ---- delete book ----
-        bookDao.delete(4);
+        // ---- deleteById book ----
+        bookDao.deleteById(4);
 
         bookList = bookDao.findAll();
         for (Book book : bookList) {
