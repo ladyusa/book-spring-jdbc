@@ -15,7 +15,7 @@ public class BookDaoImp implements BookDao {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    public void insert(Book book) {
+    public void save(Book book) {
         String query = "INSERT INTO book (id, name, price) VALUES (?, ?, ?);";
         Object[] data = new Object[]
                 { book.getId(), book.getName(), book.getPrice() };
@@ -29,7 +29,7 @@ public class BookDaoImp implements BookDao {
         jdbcTemplate.update(query, data);
     }
 
-    public void delete(int id) {
+    public void deleteById(int id) {
         String query = "DELETE FROM book WHERE id = ?;";
         Object[] data = new Object[]
                 { id };
