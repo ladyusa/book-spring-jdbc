@@ -16,20 +16,28 @@ public class BookDaoImp implements BookDao {
     }
 
     public void insert(Book book) {
-        String query = "insert into book (id, name, price) values (?, ?, ?);";
+        String query = "INSERT INTO book (id, name, price) VALUES (?, ?, ?);";
         Object[] data = new Object[]
                 { book.getId(), book.getName(), book.getPrice() };
         jdbcTemplate.update(query, data);
     }
 
+    public void update(int id, Book book) {
+        // TODO: add code to update book
+    }
+
+    public void delete(int id) {
+        // TODO: add code to delete book
+    }
+
     public Book getOne(int id) {
-        String query = "select * from book where id = " + id;
+        String query = "SELECT * FROM book WHERE id = " + id;
         Book book = jdbcTemplate.queryForObject(query, new BookRowMapper());
         return book;
     }
 
     public List<Book> getAll() {
-        String query = "select * from book";
+        String query = "SELECT * FROM book";
         List<Book> books = jdbcTemplate.query(query, new BookRowMapper());
         return books;
     }
@@ -43,5 +51,4 @@ public class BookDaoImp implements BookDao {
             return book;
         }
     }
-
 }
