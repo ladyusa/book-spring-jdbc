@@ -16,10 +16,10 @@ public class Main {
         bookDao.insert(newBook);
 
         // ---- select book ----
-        Book spring = bookDao.getOne(4);
-        System.out.println("---getOne: " + spring);
+        Book spring = bookDao.findById(4);
+        System.out.println("---findById: " + spring);
 
-        List<Book> bookList = bookDao.getAll();
+        List<Book> bookList = bookDao.findAll();
         for (Book book : bookList) {
             System.out.println(book);
         }
@@ -28,13 +28,13 @@ public class Main {
         newBook.setPrice(600);
         bookDao.update(4, newBook);
 
-        spring = bookDao.getOne(4);
-        System.out.println("---getOne: " + spring);
+        spring = bookDao.findById(4);
+        System.out.println("---findById: " + spring);
 
         // ---- delete book ----
         bookDao.delete(4);
 
-        bookList = bookDao.getAll();
+        bookList = bookDao.findAll();
         for (Book book : bookList) {
             System.out.println(book);
         }

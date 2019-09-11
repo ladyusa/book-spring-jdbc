@@ -30,13 +30,13 @@ public class BookDaoImp implements BookDao {
         // TODO: add code to delete book
     }
 
-    public Book getOne(int id) {
+    public Book findById(int id) {
         String query = "SELECT * FROM book WHERE id = " + id;
         Book book = jdbcTemplate.queryForObject(query, new BookRowMapper());
         return book;
     }
 
-    public List<Book> getAll() {
+    public List<Book> findAll() {
         String query = "SELECT * FROM book";
         List<Book> books = jdbcTemplate.query(query, new BookRowMapper());
         return books;
