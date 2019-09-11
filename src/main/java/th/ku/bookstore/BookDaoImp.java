@@ -37,13 +37,13 @@ public class BookDaoImp implements BookDao {
     }
 
     public Book getOne(int id) {
-        String query = "select * from book where id = " + id;
+        String query = "SELECT * FROM book WHERE id = " + id;
         Book book = jdbcTemplate.queryForObject(query, new BookRowMapper());
         return book;
     }
 
     public List<Book> getAll() {
-        String query = "select * from book";
+        String query = "SELECT * FROM book";
         List<Book> books = jdbcTemplate.query(query, new BookRowMapper());
         return books;
     }
