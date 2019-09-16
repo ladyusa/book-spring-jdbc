@@ -30,10 +30,8 @@ public class BookDaoImp implements BookDao {
     }
 
     public void deleteById(int id) {
-        String query = "DELETE FROM book WHERE id = ?;";
-        Object[] data = new Object[]
-                { id };
-        jdbcTemplate.update(query, data);
+        String query = "DELETE FROM book WHERE id = " + id;
+        jdbcTemplate.update(query);
     }
 
     public Book findById(int id) {
